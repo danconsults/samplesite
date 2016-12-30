@@ -140,7 +140,7 @@ nav ul {list-style: none; margin: 0; padding: 0px; }
 
 nav ul li:hover {background-color: #2b0306; }
 
-nav ul li a:hover > ul { display: block; }
+nav ul li:hover > ul { display: block; }
 
 nav ul li a {
 	display: inline-block;
@@ -172,9 +172,27 @@ nav > ul > li { float: left; }
 
 nav > ul > li > a { width: auto; padding: 10px 20px 15px 20px; }
 
+/* The code below adds touch functionality to windows by checking for the has-popup windows attribute */
+nav a[aria-haspopup="true"]::after {
+	content: '';
+	display: block; width: 0px; height: 0px;
+	position: absolute;
+	top: 16px; right: 15px;
+	
+	/* navigation border drawn using css! wololo! hii ni uganga lol */ 
+	
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	border-left: 4px solid #fff;
+}
 
-
-
+nav > ul > li > a[aria-haspopup="true"]::after{
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid #fff;
+	left: 20px; right: auto;
+	bottom: 6px; top: auto;
+}
 
 
 
